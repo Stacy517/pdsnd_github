@@ -47,7 +47,6 @@ def get_filters():
     return city, month, day
 
 
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -59,14 +58,15 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+    start_time = 'Start Time'
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
     # convert the Start Time column to datetime
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df[start_time] = pd.to_datetime(df[start_time])
     # extract month and day of week from Start Time to create new columns
-    df['month'] = df['Start Time'].dt.month_name()
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
-    df['hour'] = df['Start Time'].dt.hour
+    df['month'] = df[start_time].dt.month_name()
+    df['day_of_week'] = df[start_time].dt.weekday_name
+    df['hour'] = df[start_time].dt.hour
    
     # filter by month if applicable
     if month != 'All':
@@ -107,16 +107,18 @@ def station_stats(df):
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
+    start_station = 'Start Station'
+    end_station = 'End Station'
 
     # DONE: display most commonly used start station
-    popular_start_station = df['Start Station'].mode()[0]
+    popular_start_station = df[start_station].mode()[0]
     print('Most commonly used start station: ', popular_start_station)
     # DONE: display most commonly used end station
-    popular_end_station = df['End Station'].mode()[0]
+    popular_end_station = df[end_station].mode()[0]
     print('Most commonly used end station: ', popular_end_station)
 
     # DONE: display most frequent combination of start station and end station trip
-    df['Start End Station'] = df ['Start Station'].astype (str) + '-' + df ['End Station'].astype (str)
+    df['Start End Station'] = df [start_station].astype (str) + '-' + df [end_station].astype (str)
     popular_start_station = df['Start End Station'].mode()[0]
     print('Most frequent combination of start station and end station trip: ', popular_start_station)
 
@@ -186,7 +188,7 @@ def raw_data_present(df):
     print('\nCalculating Raw Data Presenting...\n')
     start_time = time.time()
     load_more = input('\nDo you want to see the first 5 rows of data? Enter yes or no.\n')
-    # DONE: Display raw data of the filter
+    # DONE: Display raw data of the filter, input is insensitive, Yes, YEs, YES, YeS are all equal to yes
     while True:
         if load_more.lower() == 'yes':
             print(df.iloc[start_loc:start_loc+5])    
