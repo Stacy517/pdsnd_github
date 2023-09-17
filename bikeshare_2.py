@@ -47,7 +47,6 @@ def get_filters():
     return city, month, day
 
 
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -59,14 +58,15 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+    start_time = 'Start Time'
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
     # convert the Start Time column to datetime
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df[start_time] = pd.to_datetime(df[start_time])
     # extract month and day of week from Start Time to create new columns
-    df['month'] = df['Start Time'].dt.month_name()
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
-    df['hour'] = df['Start Time'].dt.hour
+    df['month'] = df[start_time].dt.month_name()
+    df['day_of_week'] = df[start_time].dt.weekday_name
+    df['hour'] = df[start_time].dt.hour
    
     # filter by month if applicable
     if month != 'All':
