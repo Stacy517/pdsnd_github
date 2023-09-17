@@ -71,6 +71,9 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'All':
         # filter by month to create the new dataframe
+        # User inputs should be made case insensitive,
+        # which means the input should accept the string of "Chicago" and its case variants
+        # such as "chicago", "CHICAGO", or "cHicAgo"
         df = df[df['month'] == month.title()]
     # filter by day of week if applicable
     if day != 'All':
