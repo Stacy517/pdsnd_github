@@ -70,8 +70,8 @@ def load_data(city, month, day):
    
     # filter by month if applicable
     if month != 'All':
-        # filter by month to create the new dataframe
-        # User inputs should be made case insensitive,
+        # Filter by month to create the new dataframe
+        # user inputs should be made case insensitive,
         # which means the input should accept the string of "Chicago" and its case variants
         # such as "chicago", "CHICAGO", or "cHicAgo"
         df = df[df['month'] == month.title()]
@@ -203,6 +203,8 @@ def raw_data_present(df):
 
 def main():
     while True:
+        # Use descriptive statistics to answer questions about the data.
+        # Raw data is displayed upon request by the user.
         city, month, day = get_filters()
         print('City: {}， Month: {}， Day: {}'.format(city, month, day))
         df = load_data(city, month, day)

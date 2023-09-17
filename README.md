@@ -16,6 +16,8 @@ README.md
 ### FAQ
 ## Question 1: Whether this project is insentive letter or not?
 Yes, for example: Filter by month to create the new dataframe, user inputs should be made case insensitive, which means the input should accept the string of "Chicago" and its case variants such as "chicago", "CHICAGO", or "cHicAgo"
+## Question 2: Whether there're tips for user to type in the proper filter words?
+Yes, use descriptive statistics to answer questions about the data. Raw data is displayed upon request by the user.
 
 ### Credits
 * Solicit and handle raw user input
