@@ -13,6 +13,10 @@ In this project, you will make use of Python to explore data related to bike sha
 bikeshare_2.py
 README.md
 
+### FAQ
+## Question 1: Whether this project is insentive letter or not?
+Yes, you could type in Washington, WASHingTON, washington, wASHingtoN, the same with Washington
+
 ### Credits
 * Solicit and handle raw user input
 * Use descriptive statistics to answer questions about the data. Raw data is displayed upon request by the user
