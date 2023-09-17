@@ -13,6 +13,7 @@ In this project, you will make use of Python to explore data related to bike sha
 bikeshare_2.py
 
 ### Credits
-*Solicit and handle raw user input
-*Use descriptive statistics to answer questions about the data. Raw data is displayed upon request by the user.
+* Solicit and handle raw user input
+* Use descriptive statistics to answer questions about the data. Raw data is displayed upon request by the user
+* For different cities, provide suitable analysis method based on the raw data
 
