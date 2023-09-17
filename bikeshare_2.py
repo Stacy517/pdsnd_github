@@ -185,7 +185,7 @@ def raw_data_present(df):
     print('\nCalculating Raw Data Presenting...\n')
     start_time = time.time()
     load_more = input('\nDo you want to see the first 5 rows of data? Enter yes or no.\n')
-    # DONE: Display raw data of the filter
+    # DONE: Display raw data of the filter, input is insensitive, Yes, YEs, YES, YeS are all equal to yes
     while True:
         if load_more.lower() == 'yes':
             print(df.iloc[start_loc:start_loc+5])    
